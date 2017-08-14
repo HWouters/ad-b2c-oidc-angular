@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <header class="page-header">
+    <h1>Azure AD B2C using angular-auth-oidc-client</h1>
+  </header>
+  <div class="row">
+    <ul class="list-unstyled list-inline">
+      <li><button class="btn btn-info sign-up-sign-in" *ngIf="!isAuthorized" (click)="signUp()">Sign Up / Sign in</button></li>
+      <li><button class="btn btn-info edit-profile" *ngIf="isAuthorized">Edit Profile</button></li>
+      <li><button class="btn btn-info api-call" *ngIf="isAuthorized">Call API</button></li>
+      <li><button class="btn btn-info sign-out" *ngIf="isAuthorized" (click)="signOut()">Sign Out</button></li>
+    </ul>
+  </div>
+  <div class="row">
+    <ul class="list-unstyled list-inline">
+    </ul>
+  </div>
+</div>
+
+<h5>API Response</h5>
+<pre class="api-response"></pre>
+<h5>Auth Response</h5>
+<pre class="response"></pre>
