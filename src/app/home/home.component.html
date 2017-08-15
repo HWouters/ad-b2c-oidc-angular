@@ -5,8 +5,8 @@
   <div class="row">
     <ul class="list-unstyled list-inline">
       <li><button class="btn btn-info sign-up-sign-in" *ngIf="!isAuthorized" (click)="signUp()">Sign Up / Sign in</button></li>
-      <li><button class="btn btn-info edit-profile" *ngIf="isAuthorized">Edit Profile</button></li>
-      <li><button class="btn btn-info api-call" *ngIf="isAuthorized">Call API</button></li>
+      <li><button class="btn btn-info edit-profile" disabled *ngIf="isAuthorized">Edit Profile</button></li>
+      <li><button class="btn btn-info api-call" *ngIf="isAuthorized" (click)="callApi()">Call API</button></li>
       <li><button class="btn btn-info sign-out" *ngIf="isAuthorized" (click)="signOut()">Sign Out</button></li>
     </ul>
   </div>
@@ -17,6 +17,4 @@
 </div>
 
 <h5>API Response</h5>
-<pre class="api-response"></pre>
-<h5>Auth Response</h5>
-<pre class="response"></pre>
+<pre class="api-response">{{ apiResult }}</pre>

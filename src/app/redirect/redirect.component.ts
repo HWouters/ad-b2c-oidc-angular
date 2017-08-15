@@ -13,6 +13,6 @@ export class RedirectComponent implements OnInit {
   ngOnInit() {
     this.oidcSecurityService.authorizedCallback();
 
-    this.router.navigate(['home']);
+    this.router.navigate(['/home']);
   }
 }

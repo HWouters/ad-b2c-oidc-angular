@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -11,8 +12,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   isAuthorized: boolean;
   isAuthorizedSubscription: Subscription;
+  apiResult: string;
 
-  constructor(private oidcSecurityService: OidcSecurityService) {
+  constructor(private oidcSecurityService: OidcSecurityService, private http: Http) {
     this.isAuthorized = false;
   }
 
@@ -22,8 +24,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-        this.isAuthorizedSubscription.unsubscribe();
-    }
+    this.isAuthorizedSubscription.unsubscribe();
+  }
 
   signUp() {
     this.oidcSecurityService.authorize();
@@ -31,5 +33,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   signOut() {
     this.oidcSecurityService.logoff();
+  }
+
+  callApi() {
+    const token = this.oidcSecurityService.getToken();
+    const apiURL = 'https://fabrikamb2chello.azurewebsites.net/hello';
+    const headers = new Headers();
+    headers.append('Authorization', `Bearer ${token}`);
+    return this.http.get(apiURL, { headers: headers })
+      .subscribe(response => this.apiResult = response.text(), error => console.log(error));
   }
 }
