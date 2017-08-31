@@ -7,6 +7,7 @@ import { AuthModule, OidcSecurityService, OpenIDImplicitFlowConfiguration } from
 import { AppComponent } from './app.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { HomeComponent } from './home/home.component';
+import { environment } from './../environments/environment';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -45,7 +46,7 @@ export class AppModule {
     openIDImplicitFlowConfiguration.unauthorized_route = '/home';
     openIDImplicitFlowConfiguration.auto_userinfo = true;
     openIDImplicitFlowConfiguration.log_console_warning_active = true;
-    openIDImplicitFlowConfiguration.log_console_debug_active = true;
+    openIDImplicitFlowConfiguration.log_console_debug_active = !environment.production;
     openIDImplicitFlowConfiguration.max_id_token_iat_offset_allowed_in_seconds = 10;
     openIDImplicitFlowConfiguration.override_well_known_configuration = true;
     openIDImplicitFlowConfiguration.override_well_known_configuration_url =
