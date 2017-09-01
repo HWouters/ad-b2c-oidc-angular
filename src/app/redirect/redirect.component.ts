@@ -9,9 +9,12 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 export class RedirectComponent implements OnInit, OnDestroy {
 
 	constructor(private oidcSecurityService: OidcSecurityService, private router: Router) {
+		console.log("redirect constructor");
 	  if (this.oidcSecurityService.moduleSetup) {
+		  console.log("redirect constructor moduleSetup");
 			this.doCallbackLogicIfRequired();
 		} else {
+			console.log("redirect constructor subscribe");
 			this.oidcSecurityService.onModuleSetup.subscribe(() => {
 				this.doCallbackLogicIfRequired();
 			});
@@ -20,14 +23,17 @@ export class RedirectComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 
+	console.log("redirect ngOnInit");
 	//this.router.navigate(['/home']);
 	}
 
 	ngOnDestroy(): void {
+		console.log("redirect ngOnDestroy");
 		this.oidcSecurityService.onModuleSetup.unsubscribe();
 	}
 
 	private doCallbackLogicIfRequired() {
+		console.log("redirect doCallbackLogicIfRequired");
 		if (window.location.hash) {
 			this.oidcSecurityService.authorizedCallback();
 		}

@@ -45,7 +45,7 @@ export class AppModule {
     openIDImplicitFlowConfiguration.startup_route = '/home';
     openIDImplicitFlowConfiguration.forbidden_route = '/home';
     openIDImplicitFlowConfiguration.unauthorized_route = '/home';
-    openIDImplicitFlowConfiguration.auto_userinfo = true;
+    openIDImplicitFlowConfiguration.auto_userinfo = false;
     openIDImplicitFlowConfiguration.log_console_warning_active = true;
     openIDImplicitFlowConfiguration.log_console_debug_active = !environment.production;
     openIDImplicitFlowConfiguration.max_id_token_iat_offset_allowed_in_seconds = 10;
