@@ -12,7 +12,6 @@ import { environment } from './../environments/environment';
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'redirect', component: RedirectComponent },
   { path: 'redirect.html', component: RedirectComponent }
 ];
 
