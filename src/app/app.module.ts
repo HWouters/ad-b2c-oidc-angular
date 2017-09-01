@@ -36,11 +36,11 @@ export class AppModule {
   constructor(oidcSecurityService: OidcSecurityService) {
     const openIDImplicitFlowConfiguration = new OpenIDImplicitFlowConfiguration();
     openIDImplicitFlowConfiguration.stsServer = 'https://login.microsoftonline.com/tfp/fabrikamb2c.onmicrosoft.com/b2c_1_susi/oauth2/v2.0/';
-    openIDImplicitFlowConfiguration.redirect_url = 'http://localhost:65328/redirect.html';
+    openIDImplicitFlowConfiguration.redirect_url = 'http://localhost:4200/redirect.html';
     openIDImplicitFlowConfiguration.client_id = 'e760cab2-b9a1-4c0d-86fb-ff7084abd902';
     openIDImplicitFlowConfiguration.response_type = 'id_token token';
     openIDImplicitFlowConfiguration.scope = 'openid https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read';
-    openIDImplicitFlowConfiguration.post_logout_redirect_uri = 'http://localhost:65328';
+    openIDImplicitFlowConfiguration.post_logout_redirect_uri = 'http://localhost:4200';
     openIDImplicitFlowConfiguration.startup_route = '/home';
     openIDImplicitFlowConfiguration.forbidden_route = '/home';
     openIDImplicitFlowConfiguration.unauthorized_route = '/home';
