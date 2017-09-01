@@ -5,3 +5,5 @@ This sample shows how to build a web application using [ANGULAR-AUTH-OIDC-CLIENT
 ## How To Run This Sample
 
 Clone or download this repository and and run `npm start`.
+
+Application must run on http://localhost:65328 due to the demo Azure AD STS server configuration
