@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
 import { AuthModule, OidcSecurityService, OpenIDImplicitFlowConfiguration } from 'angular-auth-oidc-client';
 import { AppComponent } from './app.component';
 import { RedirectComponent } from './redirect/redirect.component';
@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     AuthModule.forRoot(),
     RouterModule.forRoot(appRoutes),
   ],
@@ -41,7 +41,7 @@ export class AppModule {
     openIDImplicitFlowConfiguration.response_type = 'id_token token';
     openIDImplicitFlowConfiguration.scope = 'openid https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read';
     openIDImplicitFlowConfiguration.post_logout_redirect_uri = 'http://localhost:65328';
-    openIDImplicitFlowConfiguration.startup_route = '/home';
+    openIDImplicitFlowConfiguration.post_login_route = '/home';
     openIDImplicitFlowConfiguration.forbidden_route = '/home';
     openIDImplicitFlowConfiguration.unauthorized_route = '/home';
     openIDImplicitFlowConfiguration.auto_userinfo = false;
